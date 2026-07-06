@@ -1,0 +1,35 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: unilife
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/unilife_db?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 30
+        max-idle: 15
+        min-idle: 5
+        time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: unilife-producer-group
+    send-message-timeout: 3000
+
+mybatis-plus:
+  type-aliases-package: com.unilife.entity
+
+logging:
+  level:
+    com.unilife: debug
